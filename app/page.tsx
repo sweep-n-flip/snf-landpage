@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import { VideoPlaceholder } from '@/components/VideoPlaceholder'
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -21,7 +21,7 @@ export default function Home() {
               <div className="relative">
                 <div className="absolute -inset-1 rounded-full bg-orange-500/30 blur-sm group-hover:bg-orange-500/50 transition-colors"></div>
                 <img
-                  src="/assets/snf-logo-gradient.svg"
+                  src="/assets/SnF-logo-gradient.svg"
                   alt="SNF Logo"
                   className="relative h-9 w-auto opacity-90 group-hover:opacity-100 transition-opacity"
                 />
@@ -29,7 +29,7 @@ export default function Home() {
             </Link>
 
             <Link
-              href="/"
+              href="https://sweepnflip.io"
               className="rounded-full from-orange-600 to-red-600 px-6 py-2 text-xs font-bold text-white shadow-lg shadow-orange-900/20 hover:scale-105 transition-transform"
             >
               Launch dApp
@@ -57,7 +57,7 @@ export default function Home() {
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-5 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
               <Link
-                href="/"
+                href="https://sweepnflip.io"
                 className="w-full sm:w-auto rounded-full bg-gradient-to-r from-orange-600 to-red-600 px-10 py-4 text-sm font-bold text-white shadow-xl shadow-orange-900/30 hover:shadow-orange-900/50 hover:-translate-y-1 transition-all duration-300"
               >
                 Launch dApp
