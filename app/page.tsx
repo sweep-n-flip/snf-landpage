@@ -30,7 +30,7 @@ export default function Home() {
 
             <Link
               href="/community"
-              className="rounded-full bg-gradient-to-r from-orange-600 to-red-600 px-6 py-2 text-xs font-bold text-white shadow-lg shadow-orange-900/20 hover:scale-105 transition-transform"
+              className="rounded-full from-orange-600 to-red-600 px-6 py-2 text-xs font-bold text-white shadow-lg shadow-orange-900/20 hover:scale-105 transition-transform"
             >
               Launch dApp
             </Link>
