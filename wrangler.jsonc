@@ -1,7 +1,9 @@
 {
   "name": "snf-landpage",
+  "main": "worker.js",
   "compatibility_date": "2026-02-11",
   "assets": {
-    "directory": "./out"
+    "directory": "./out",
+    "binding": "ASSETS"
   }
 }
