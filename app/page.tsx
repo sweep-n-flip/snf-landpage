@@ -21,7 +21,7 @@ export default function Home() {
               <div className="relative">
                 <div className="absolute -inset-1 rounded-full bg-orange-500/30 blur-sm group-hover:bg-orange-500/50 transition-colors"></div>
                 <img
-                  src="/assets/snf-logo.svg"
+                  src="/assets/snf-logo-gradient.svg"
                   alt="SNF Logo"
                   className="relative h-9 w-auto opacity-90 group-hover:opacity-100 transition-opacity"
                 />
@@ -296,7 +296,7 @@ export default function Home() {
               {/* Brand */}
               <div className="col-span-1 md:col-span-2">
                 <Link href="/" className="flex items-center gap-2 mb-6">
-                  <img src="/assets/snf-logo.svg" alt="SNF" className="h-8 w-auto" />
+                  <img src="/assets/SnF-logo-gradient.svg" alt="SNF" className="h-8 w-auto" />
                 </Link>
                 <p className="text-sm text-slate-400 max-w-xs leading-relaxed">
                   The ultimate AMM and Aggregator for cross-chain NFT liquidity. Unlock the value of your assets anywhere.
