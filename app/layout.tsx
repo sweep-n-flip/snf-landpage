@@ -8,8 +8,10 @@ export const metadata: Metadata = {
   title: 'Sweep n\' Flip - NFT AMM & Aggregator',
   description: 'Trade NFTs with liquidity pools and sweep multiple NFTs across marketplaces',
   icons: {
-    icon: '/icon.svg',
-    apple: '/icon.svg',
+    icon: [
+      { url: '/icon.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: '/icon.png',
   },
 }
 
