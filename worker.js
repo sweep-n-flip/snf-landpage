@@ -14,7 +14,7 @@ export default {
     const contentType = response.headers.get('content-type') || '';
     if (isInstitutional && contentType.includes('text/html')) {
       let html = await response.text();
-      html = html.replace(/(href|src|action)="\/(?!institutional|\/|http)/g, '$1="/institutional/');
+      html = html.replace(/(href|src|action)="\/(?!institutional|_next|\/|http)/g, '$1="/institutional/');
       return new Response(html, {
         status: response.status,
         headers: response.headers,
