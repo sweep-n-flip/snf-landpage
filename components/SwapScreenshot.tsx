@@ -20,7 +20,7 @@ export function SwapScreenshot() {
         <div className="overflow-hidden rounded-3xl"
           style={{ boxShadow: '0 40px 100px rgba(0,0,0,0.75), 0 0 0 1px rgba(255,255,255,0.07), 0 -1px 0 rgba(255,255,255,0.12) inset' }}>
           <img
-            src="../public/swap-screenshot.png"
+            src="/assets/swap-screenshot.png"
             alt="Sweep n' Flip — Swap interface"
             className="block w-full max-w-[480px]"
           />
