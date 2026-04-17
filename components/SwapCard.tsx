@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 const MINT_PRICE_ETH = 0.02
 const ETH_PRICE_USD  = 2327.5
@@ -201,7 +201,7 @@ export function SwapCard() {
               <div className="flex items-center gap-2.5">
                 <div className="relative h-6 w-9 shrink-0">
                   <span className="absolute left-0 flex h-6 w-6 items-center justify-center rounded-full ring-2"
-                    style={{ background: 'linear-gradient(135deg,#627EEA,#3D5FD9)', ringColor: 'rgba(12,10,20,1)' }}>
+                    style={{ background: 'linear-gradient(135deg,#627EEA,#3D5FD9)', '--tw-ring-color': 'rgba(12,10,20,1)' } as React.CSSProperties}>
                     {ETH_ICON}
                   </span>
                   <img
