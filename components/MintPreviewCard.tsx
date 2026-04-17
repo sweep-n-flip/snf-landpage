@@ -98,7 +98,7 @@ export function MintPreviewCard() {
 
         {/* CTA */}
         <Link
-          href="https://app.sweepnflip.io/swap"
+          href="https://app.sweepnflip.io/swap?chain=8453&tokenOut=0xc79eaAe02898378fE072acF8D4412A64Bb630024&mode=latest&tokenIn=eth&amountIn=0.0200000"
           target="_blank"
           rel="noopener noreferrer"
           className="block w-full rounded-2xl bg-gradient-to-r from-orange-600 to-red-600 py-3.5 text-center text-sm font-bold text-white shadow-lg shadow-orange-900/30 hover:shadow-orange-900/50 hover:-translate-y-0.5 transition-all duration-200"

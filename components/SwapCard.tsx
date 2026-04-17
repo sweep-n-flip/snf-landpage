@@ -256,7 +256,7 @@ export function SwapCard() {
 
           {/* CTA */}
           <a
-            href="https://app.sweepnflip.io/swap"
+            href="https://app.sweepnflip.io/swap?chain=8453&tokenOut=0xc79eaAe02898378fE072acF8D4412A64Bb630024&mode=latest&tokenIn=eth&amountIn=0.0200000"
             target="_blank"
             rel="noopener noreferrer"
             className="block w-full rounded-2xl py-4 text-center text-[14px] font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110"
