@@ -4,7 +4,7 @@ export function SwapScreenshot() {
   return (
     <div className="flex justify-center" style={{ perspective: '1000px' }}>
       <a
-        href="https://app.sweepnflip.io/swap"
+        href="https://app.sweepnflip.io/swap?chain=8453&tokenOut=0xc79eaAe02898378fE072acF8D4412A64Bb630024&mode=latest&tokenIn=eth&amountIn=0.0200000"
         target="_blank"
         rel="noopener noreferrer"
         className="group relative block"
@@ -31,7 +31,7 @@ export function SwapScreenshot() {
           style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 50%)' }}>
           <span className="rounded-full px-5 py-2 text-xs font-bold text-white"
             style={{ background: 'linear-gradient(135deg,#dc2626,#ea580c)', boxShadow: '0 4px 20px rgba(220,38,38,0.5)' }}>
-            Open App →
+            Launch dApp
           </span>
         </div>
       </a>
