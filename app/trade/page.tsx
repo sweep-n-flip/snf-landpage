@@ -95,7 +95,7 @@ export default function TradePage() {
                     </div>
                     <div className="flex justify-between">
                         <span className="text-dark-600">Liquidity Provider Fee</span>
-                        <span>0.3%</span>
+                        <span>2%</span>
                     </div>
                     <div className="flex justify-between">
                         <span className="text-dark-600">Route</span>
