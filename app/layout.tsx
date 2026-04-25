@@ -5,13 +5,24 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Sweep n\' Flip - NFT AMM & Aggregator',
-  description: 'Trade NFTs with liquidity pools and sweep multiple NFTs across marketplaces',
+  title: 'Sweep n\' Flip | NFT DEX',
+  description: 'Swap anything — including NFTs',
   icons: {
     icon: [
       { url: '/icon.png', sizes: '32x32', type: 'image/png' },
     ],
     apple: '/icon.png',
+  },
+  openGraph: {
+    title: 'Sweep n\' Flip | NFT DEX',
+    description: 'Swap anything — including NFTs',
+    type: 'website',
+    siteName: 'Sweep n\' Flip',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Sweep n\' Flip | NFT DEX',
+    description: 'Swap anything — including NFTs',
   },
 }
 
