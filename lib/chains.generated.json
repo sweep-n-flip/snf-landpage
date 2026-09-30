@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "Ethereum",
+    "logo": "/chains/ethereum.png"
+  },
+  {
+    "id": 4663,
+    "name": "Robinhood Chain",
+    "logo": "/chains/robinhood.png"
+  },
+  {
+    "id": 8453,
+    "name": "Base",
+    "logo": "/chains/base.png"
+  },
+  {
+    "id": 5042,
+    "name": "Arc",
+    "logo": "/chains/arc-dark.png"
+  },
+  {
+    "id": 42161,
+    "name": "Arbitrum",
+    "logo": "/chains/arbitrum.png"
+  },
+  {
+    "id": 33139,
+    "name": "ApeChain",
+    "logo": "/chains/apechain.png"
+  },
+  {
+    "id": 2741,
+    "name": "Abstract",
+    "logo": "/chains/abstract.png"
+  },
+  {
+    "id": 43114,
+    "name": "Avalanche",
+    "logo": "/chains/avalanche.png"
+  },
+  {
+    "id": 143,
+    "name": "Monad",
+    "logo": "/chains/monad.png"
+  },
+  {
+    "id": 999,
+    "name": "HyperEVM",
+    "logo": "/chains/hyperevm-dark.png"
+  },
+  {
+    "id": 2020,
+    "name": "Ronin",
+    "logo": "/chains/ronin.png"
+  },
+  {
+    "id": 56,
+    "name": "BNB Chain",
+    "logo": "/chains/bsc.png"
+  },
+  {
+    "id": 80094,
+    "name": "Berachain",
+    "logo": "/chains/berachain.png"
+  },
+  {
+    "id": 137,
+    "name": "Polygon",
+    "logo": "/chains/polygon.png"
+  }
+]

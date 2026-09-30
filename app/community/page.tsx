@@ -57,7 +57,7 @@ export default function CommunityPage() {
                         {/* Primary Actions */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
                             <a
-                                href="https://discord.gg/YuvVsCk8e6"
+                                href="https://discord.gg/b9yHwksnsv"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-orange-600 to-red-600 px-8 py-4 text-sm font-bold text-white shadow-xl shadow-orange-900/30 hover:shadow-orange-900/50 hover:-translate-y-1 transition-all duration-300"
