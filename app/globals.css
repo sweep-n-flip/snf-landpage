@@ -145,3 +145,87 @@
     }
   }
 }
+/* ── Landing v4 (light) ─────────────────────────────────────────────────────── */
+@theme {
+  --color-ink: #0F172A;
+  --color-canvas: #F8FAFC;
+  --color-snf: #FF2E00;
+  --color-snf-hover: #E62900;
+  --color-snf-soft: #FFF1EC;
+  --color-snf-line: #FFC4B5;
+  --font-geist: var(--font-geist-sans), system-ui, sans-serif;
+  --font-geist-mono: var(--font-geist-mono-face), ui-monospace, monospace;
+}
+
+@layer utilities {
+  .snf-gradient {
+    background-image: linear-gradient(90deg, #FF7A45, #FF2E00 55%, #E11D48);
+  }
+
+  .snf-gradient-text {
+    background-image: linear-gradient(90deg, #FF7A45, #FF2E00 55%, #E11D48);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .snf-cta-shadow {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), 0 10px 22px -10px rgba(255, 46, 0, .7);
+  }
+
+  .lp-sheen {
+    background: linear-gradient(110deg, transparent 35%, rgba(255, 255, 255, .45) 50%, transparent 65%);
+    animation: lpSheen 3.4s ease-in-out infinite;
+  }
+
+  .lp-flip {
+    animation: lpFlip 1.6s cubic-bezier(.7, 0, .2, 1) .3s both;
+  }
+
+  .lp-splash {
+    animation: lpSplashOut 2.6s ease forwards;
+  }
+
+  .lp-floaty {
+    animation: lpFloaty 12s ease-in-out infinite;
+  }
+
+  .lp-marquee {
+    animation: lpMarquee 40s linear infinite;
+  }
+
+  .lp-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes lpSheen {
+    0% { transform: translateX(-120%); }
+    55%, 100% { transform: translateX(120%); }
+  }
+
+  @keyframes lpFlip {
+    0%, 35% { transform: rotate(0); }
+    60%, 100% { transform: rotate(180deg); }
+  }
+
+  @keyframes lpSplashOut {
+    0%, 78% { opacity: 1; visibility: visible; }
+    100% { opacity: 0; visibility: hidden; }
+  }
+
+  @keyframes lpFloaty {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(24px, -18px); }
+  }
+
+  @keyframes lpMarquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lp *, .lp *::before, .lp *::after {
+    animation: none !important;
+  }
+}
