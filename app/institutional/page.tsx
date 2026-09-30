@@ -286,7 +286,7 @@ export default function InstitutionalPage() {
                   <img src="/assets/SnF-logo-gradient.svg" alt="SNF" className="h-8 w-auto" />
                 </Link>
                 <p className="text-sm text-slate-400 max-w-xs leading-relaxed">
-                  The ultimate AMM and Aggregator for cross-chain NFT liquidity. Unlock the value of your assets anywhere.
+                  The ultimate AMM and Aggregator for cross-chain NFT liquidity.
                 </p>
                 <div className="mt-8 flex gap-4">
                   <a href="https://x.com/SweepnFlip" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors">
