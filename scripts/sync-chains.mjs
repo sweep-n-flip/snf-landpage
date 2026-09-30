@@ -81,7 +81,8 @@ const chains = identifiers.map((ident) => {
 })
 
 const next = `${JSON.stringify(chains, null, 2)}\n`
-const current = existsSync(OUT_JSON) ? readFileSync(OUT_JSON, 'utf8') : ''
+// Normalise CRLF: Windows checkouts (core.autocrlf) must not read as a stale list.
+const current = existsSync(OUT_JSON) ? readFileSync(OUT_JSON, 'utf8').replace(/\r\n/g, '\n') : ''
 
 if (CHECK) {
   if (current !== next) fail('lib/chains.generated.json is stale; run `pnpm sync:chains` and commit')
