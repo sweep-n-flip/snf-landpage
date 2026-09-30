@@ -20,7 +20,7 @@ export function LandingFooter({ developerResources }: { developerResources: bool
         <div className="col-span-full flex min-w-0 flex-col gap-4 sm:col-span-2">
           <Wordmark />
           <p className="m-0 max-w-[360px] text-sm leading-[1.55] text-slate-500">
-            The ultimate AMM and Aggregator for NFT liquidity. Unlock the value of your assets anywhere.
+            The ultimate AMM and Aggregator for NFT liquidity.
           </p>
           <div className="flex flex-wrap gap-2">
             {SOCIAL.map((s) => (
