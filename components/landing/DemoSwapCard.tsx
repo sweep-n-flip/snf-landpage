@@ -4,6 +4,7 @@ import { useRef, useState } from 'react'
 import type { PointerEvent } from 'react'
 import { impactTone, quoteDemoBuy } from '@/lib/demoPool'
 import { LaunchButton } from './LaunchButton'
+import { NeonKoiLogo } from './NeonKoiLogo'
 
 // Illustrative numbers only. "Neon Koi" is a fictional collection; pricing follows
 // the real pool curve (see lib/demoPool.ts), but nothing here is a live quote.
@@ -73,7 +74,7 @@ export function DemoSwapCard() {
           </span>
           <span className="flex shrink-0 flex-col items-end gap-2.5">
             <span className="flex items-center gap-2.5 rounded-full bg-white py-1.5 pl-1.5 pr-3.5 text-lg font-semibold shadow-[0_2px_8px_rgba(15,23,42,.1)]">
-              <span className="flex h-[34px] w-[34px] items-center justify-center rounded-full bg-[#EEF1F6] text-[17px] font-bold text-slate-800">Ξ</span>
+              <img src="/tokens/eth.svg" alt="" className="h-[34px] w-[34px] rounded-full" />
               ETH
               <Chevron />
             </span>
@@ -97,7 +98,7 @@ export function DemoSwapCard() {
             </span>
             <span className="flex shrink-0 flex-col items-end gap-2.5">
               <span className="flex items-center gap-2.5 rounded-full bg-white py-1.5 pl-1.5 pr-3.5 text-lg font-semibold shadow-[0_2px_8px_rgba(15,23,42,.1)]">
-                <span className="flex h-[34px] w-[34px] items-center justify-center rounded-[10px] bg-[linear-gradient(135deg,#22D3EE,#EC4899)] text-[11px] font-extrabold text-white">NK</span>
+                <NeonKoiLogo className="h-[34px] w-[34px] rounded-[10px]" />
                 Neon Koi
                 <Chevron />
               </span>
@@ -153,8 +154,8 @@ export function DemoSwapCard() {
         <div className="flex items-center justify-between gap-2.5 rounded-[20px] border border-[#EDF1F7] py-2.5 pl-4 pr-2.5">
           <span className="flex items-center gap-2.5 whitespace-nowrap text-base font-semibold">
             <span className="flex">
-              <span className="flex h-7 w-7 items-center justify-center rounded-full border-2 border-white bg-[#EEF1F6] text-sm font-bold">Ξ</span>
-              <span className="-ml-2 h-7 w-7 rounded-lg border-2 border-white bg-[linear-gradient(135deg,#22D3EE,#EC4899)]" />
+              <img src="/tokens/eth.svg" alt="" className="h-7 w-7 rounded-full border-2 border-white" />
+              <NeonKoiLogo className="-ml-2 h-7 w-7 rounded-lg border-2 border-white" />
             </span>
             ETH/NEONKOI
           </span>
