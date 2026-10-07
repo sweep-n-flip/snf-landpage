@@ -34,8 +34,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} ${geist.variable} ${geistMono.variable}`}>
+    // Font variables sit on <html> so the :root-level Tailwind theme tokens can resolve them.
+    <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
+      <body className={inter.className}>
         <main className="min-h-screen">
           {children}
         </main>

@@ -5,22 +5,25 @@
  * Live chains  = `supportedChains` in snf-client/src/config/chains.ts (order preserved).
  * Name + logo  = the matching entry in snf-client/src/config/assets/chains.ts.
  *
+ * Reads those files from snf-client's PRODUCTION branch (`origin/master`, override with
+ * SNF_CLIENT_REF) through git, never from the working tree: the local snf-client checkout is
+ * often on a feature branch, and syncing from it once put a sunset chain (Abstract) back.
+ *
  * Writes lib/chains.generated.json and copies each logo into public/chains/.
- * Runs before `dev` and `build`. When the snf-client checkout is not next to this
- * repo (CI, Cloudflare build) it keeps the committed JSON and exits 0.
+ * Runs before `dev` and `build`. When the snf-client checkout or the ref is not available
+ * (CI, Cloudflare build, offline) it keeps the committed JSON and exits 0.
  *
  *   node scripts/sync-chains.mjs          sync
  *   node scripts/sync-chains.mjs --check  exit 1 if the committed list is stale
  */
-import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { execFileSync } from 'node:child_process'
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const CLIENT = resolve(process.env.SNF_CLIENT_DIR ?? join(ROOT, '..', 'snf-client'))
-const CHAINS_TS = join(CLIENT, 'src/config/chains.ts')
-const CATALOG_TS = join(CLIENT, 'src/config/assets/chains.ts')
-const ICONS_DIR = join(CLIENT, 'public/icons')
+const REF = process.env.SNF_CLIENT_REF ?? 'origin/master'
 const OUT_JSON = join(ROOT, 'lib/chains.generated.json')
 const OUT_ICONS = join(ROOT, 'public/chains')
 const CHECK = process.argv.includes('--check')
@@ -38,15 +41,31 @@ function fail(msg) {
   process.exit(1)
 }
 
-if (!existsSync(CHAINS_TS) || !existsSync(CATALOG_TS)) {
-  const msg = `snf-client not found at ${CLIENT}; keeping committed lib/chains.generated.json`
+/** A file of snf-client at REF, or null when git, the checkout or the path is missing. */
+function readClient(path, encoding = 'utf8') {
+  try {
+    return execFileSync('git', ['-C', CLIENT, 'show', `${REF}:${path}`], { encoding, stdio: ['ignore', 'pipe', 'ignore'] })
+  } catch {
+    return null
+  }
+}
+
+if (existsSync(join(CLIENT, '.git'))) {
+  try {
+    execFileSync('git', ['-C', CLIENT, 'fetch', '--quiet', 'origin', REF.replace(/^origin\//, '')], { stdio: 'ignore', timeout: 30000 })
+  } catch {
+    // Offline: use the ref as last fetched.
+  }
+}
+
+const chainsSrc = readClient('src/config/chains.ts')
+const catalogSrc = readClient('src/config/assets/chains.ts')
+if (!chainsSrc || !catalogSrc) {
+  const msg = `snf-client ${REF} not readable at ${CLIENT}; keeping committed lib/chains.generated.json`
   if (CHECK) fail(msg)
   console.warn(`[sync-chains] ${msg}`)
   process.exit(0)
 }
-
-const chainsSrc = readFileSync(CHAINS_TS, 'utf8')
-const catalogSrc = readFileSync(CATALOG_TS, 'utf8')
 
 const listMatch = chainsSrc.match(/export const supportedChains\s*=\s*\[([^\]]+)\]/)
 if (!listMatch) fail('could not find `supportedChains` in snf-client/src/config/chains.ts')
@@ -69,6 +88,7 @@ for (const m of catalogSrc.matchAll(/\{\s*chainId:\s*(CHAIN_ID_\w+),([\s\S]*?)\n
   if (name && constIds[m[1]] !== undefined) catalog[constIds[m[1]]] = { name, logoUrl }
 }
 
+const icons = new Map()
 const chains = identifiers.map((ident) => {
   const id = definedIds[ident] ?? WAGMI_CHAIN_IDS[ident]
   if (id === undefined) fail(`unknown chain identifier "${ident}" in supportedChains; add it to WAGMI_CHAIN_IDS`)
@@ -76,8 +96,9 @@ const chains = identifiers.map((ident) => {
   if (!entry) fail(`chain ${id} (${ident}) has no entry in snf-client/src/config/assets/chains.ts`)
   const source = LOGO_ON_LIGHT[id] ?? entry.logoUrl
   const file = source?.replace(/^\/icons\//, '')
-  const hasLogo = Boolean(file) && existsSync(join(ICONS_DIR, file))
-  return { id, name: DISPLAY_NAME[id] ?? entry.name, logo: hasLogo ? `/chains/${file}` : null }
+  const bytes = file ? readClient(`public/icons/${file}`, 'buffer') : null
+  if (bytes) icons.set(file, bytes)
+  return { id, name: DISPLAY_NAME[id] ?? entry.name, logo: bytes ? `/chains/${file}` : null }
 })
 
 const next = `${JSON.stringify(chains, null, 2)}\n`
@@ -91,9 +112,7 @@ if (CHECK) {
 }
 
 mkdirSync(OUT_ICONS, { recursive: true })
-for (const c of chains) {
-  if (c.logo) copyFileSync(join(ICONS_DIR, c.logo.replace('/chains/', '')), join(ROOT, 'public', c.logo))
-}
+for (const [file, bytes] of icons) writeFileSync(join(OUT_ICONS, file), bytes)
 if (current !== next) writeFileSync(OUT_JSON, next)
 const missing = chains.filter((c) => !c.logo).map((c) => c.name)
 console.log(
