@@ -15,11 +15,6 @@
     "logo": "/chains/base.png"
   },
   {
-    "id": 5042,
-    "name": "Arc",
-    "logo": "/chains/arc-dark.png"
-  },
-  {
     "id": 42161,
     "name": "Arbitrum",
     "logo": "/chains/arbitrum.png"
@@ -38,26 +33,6 @@
     "id": 143,
     "name": "Monad",
     "logo": "/chains/monad.png"
-  },
-  {
-    "id": 999,
-    "name": "HyperEVM",
-    "logo": "/chains/hyperevm-dark.png"
-  },
-  {
-    "id": 2020,
-    "name": "Ronin",
-    "logo": "/chains/ronin.png"
-  },
-  {
-    "id": 56,
-    "name": "BNB Chain",
-    "logo": "/chains/bsc.png"
-  },
-  {
-    "id": 80094,
-    "name": "Berachain",
-    "logo": "/chains/berachain.png"
   },
   {
     "id": 137,
