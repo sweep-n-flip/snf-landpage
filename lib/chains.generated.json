@@ -13,30 +13,5 @@
     "id": 8453,
     "name": "Base",
     "logo": "/chains/base.png"
-  },
-  {
-    "id": 42161,
-    "name": "Arbitrum",
-    "logo": "/chains/arbitrum.png"
-  },
-  {
-    "id": 33139,
-    "name": "ApeChain",
-    "logo": "/chains/apechain.png"
-  },
-  {
-    "id": 43114,
-    "name": "Avalanche",
-    "logo": "/chains/avalanche.png"
-  },
-  {
-    "id": 143,
-    "name": "Monad",
-    "logo": "/chains/monad.png"
-  },
-  {
-    "id": 137,
-    "name": "Polygon",
-    "logo": "/chains/polygon.png"
   }
 ]

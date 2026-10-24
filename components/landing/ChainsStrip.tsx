@@ -15,13 +15,19 @@ function ChainItem({ chain }: { chain: LiveChain }) {
   )
 }
 
+// Below this many chains one copy of the list is narrower than the strip, so the marquee would
+// scroll with a visible gap; a static centered row reads better.
+const MARQUEE_MIN_CHAINS = 6
+
 /** "Live on N chains" — list and count both come from snf-client (see lib/chains.ts). */
 export function ChainsStrip() {
   const label = `Live on ${LIVE_CHAIN_COUNT} chains`
+  const marquee = LIVE_CHAIN_COUNT >= MARQUEE_MIN_CHAINS
   return (
     <section id="chains" aria-label={label} className="relative mx-auto flex max-w-[1200px] flex-col items-center gap-6 px-6 pt-[72px]">
       <Eyebrow centered>{label.toUpperCase()}</Eyebrow>
 
+      {marquee && (
       <div className="w-full overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)] motion-reduce:hidden">
         <div className="lp-marquee flex w-max">
           {[false, true].map((copy) => (
@@ -33,8 +39,9 @@ export function ChainsStrip() {
           ))}
         </div>
       </div>
+      )}
 
-      <div className="hidden max-w-[960px] flex-wrap justify-center gap-x-10 gap-y-5 motion-reduce:flex">
+      <div className={`${marquee ? 'hidden motion-reduce:flex' : 'flex'} max-w-[960px] flex-wrap justify-center gap-x-10 gap-y-5`}>
         {LIVE_CHAINS.map((c) => (
           <ChainItem key={c.id} chain={c} />
         ))}
