@@ -4,9 +4,8 @@ const APP = 'https://app.sweepnflip.io'
 
 export const LINKS = {
   home: 'https://sweepnflip.io/',
-  // Launch dApp deep-links to the Based Sweepers mint on Base (founder decision, commit fcf3905).
-  launchApp:
-    `${APP}/swap?chain=8453&tokenOut=0xc79eaAe02898378fE072acF8D4412A64Bb630024&mode=latest&tokenIn=eth&amountIn=0.0200000`,
+  // Launch dApp opens the swap on Elysium (99901) (founder 2026-11-09; was the Based Sweepers mint on Base).
+  launchApp: `${APP}/swap?chain=99901&mode=latest&tokenIn=eth`,
   docs: `${APP}/docs`,
   sdkDocs: `${APP}/docs/sdk`,
   builderCodeDocs: `${APP}/docs/attribution`,

@@ -1,8 +1,8 @@
 [
   {
-    "id": 1,
-    "name": "Ethereum",
-    "logo": "/chains/ethereum.png"
+    "id": 8453,
+    "name": "Base",
+    "logo": "/chains/base.png"
   },
   {
     "id": 4663,
@@ -10,8 +10,8 @@
     "logo": "/chains/robinhood.png"
   },
   {
-    "id": 8453,
-    "name": "Base",
-    "logo": "/chains/base.png"
+    "id": 99901,
+    "name": "Elysium",
+    "logo": "/chains/elysium.png"
   }
 ]
